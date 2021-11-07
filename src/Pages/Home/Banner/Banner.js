@@ -6,6 +6,7 @@ import { Button, Container, Typography, Box} from '@mui/material';
 
 const bannerBg = {
     background: `url(${bg})`,
+    marginTop:' 15px'
 }
 
 const verticalCenter = {
