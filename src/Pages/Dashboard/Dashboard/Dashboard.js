@@ -15,15 +15,24 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
-import Calender from '../../Pages/Shared/Calender/Calender';
+import { Button } from '@mui/material';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useParams,
+    useRouteMatch
+  } from "react-router-dom";
+
+
 
 const drawerWidth = 240;
 
 function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-
+  let { path, url } = useRouteMatch();
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -33,6 +42,8 @@ function Dashboard(props) {
         
      <Toolbar />
       <Divider />
+      <Link  style={{textDecoration: "none"}} to={`${url}`}><Button>Back to Home</Button></Link>
+      
       <List>
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
           <ListItem button key={text}>
@@ -42,6 +53,10 @@ function Dashboard(props) {
             <ListItemText primary={text} />
           </ListItem>
         ))}
+      </List>
+      <Divider />
+      <List>
+        <Link  style={{textDecoration: "none"}} to='/home'><Button>Back to Home</Button></Link>
       </List>
     </div>
   );
@@ -109,17 +124,7 @@ function Dashboard(props) {
         component="main"
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
-        <Toolbar />
-        <Typography paragraph>
-          <Grid container spacing={2}>
-              <Grid item xs={8}>
-                <Calender></Calender>
-              </Grid>
-              <Grid item xs={4}>
-
-              </Grid>
-          </Grid>
-        </Typography>
+        <Toolbar />        
       </Box>
     </Box>
   );

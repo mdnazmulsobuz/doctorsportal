@@ -35,8 +35,10 @@ const Navigation = () => {
                             <Button onClick={logout} color="inherit">logout</Button>
                         </Box>
                         :
-                        <NavLink to='/login'><Button color="inherit">login </Button></NavLink>
+                        <NavLink style={{textDecoration: 'none', color: "#fff"}} to='/login'><Button color="inherit">login </Button></NavLink>
                     }
+                    <NavLink style={{textDecoration: 'none', color: "#fff"}} to='/appointment'><Button color="inherit">{user?.displayName}</Button></NavLink>
+                    
                 </Toolbar>
             </AppBar>
         </Box>  
