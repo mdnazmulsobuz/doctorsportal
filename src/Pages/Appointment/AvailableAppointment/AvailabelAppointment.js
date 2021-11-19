@@ -7,36 +7,42 @@ const bookings = [
         id:1,
         name: 'Teed Orthodinics',
         time: '08.00 AM - 09.00 AM',
+        price: 35,
         space: 10
     },
     {
         id:2,
         name: 'Cosmetic Dentistry',
         time: '09.00 AM - 10.00 AM',
+        price: 45,
         space: 8
     },
     {
         id:3,
         name: 'Teed Cleaning',
         time: '11.00 AM - 12.00 AM',
+        price: 50,
         space: 12
     },
     {
         id:4,
         name: 'Cavity Protection',
         time: '03.00 PM - 04.00 AM',
+        price: 22,
         space: 14
     },
     {
         id:5,
         name: 'Pediatric Dental',
         time: '05.00 AM - 06.00 AM',
+        price: 30,
         space: 20
     },
     {
         id:6,
         name: 'Oral Surgery',
         time: '07.00 AM - 08.00 AM',
+        price: 43,
         space: 9
     },
 

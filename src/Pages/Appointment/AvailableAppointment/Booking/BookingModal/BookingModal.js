@@ -11,7 +11,7 @@ import useAuth from '../../../../../hooks/useAuth';
 
 
 const BookingModal = ({openBooking, handleBookingClose, booking, date, setBookingSuccess}) => {
-    const {name, time } = booking;
+    const {name, time, price } = booking;
     const {user} = useAuth();
     const initialInfo = {patientName: user.displayName, email: user.email, phone : ''}
     const  [bookingInfo, setBookingInfo] = useState(initialInfo);
@@ -30,12 +30,13 @@ const BookingModal = ({openBooking, handleBookingClose, booking, date, setBookin
       const appointment = {
         ...bookingInfo,
         time, 
+        price, 
         serviceName: name,
         date : date.toLocaleDateString()
       }
 
       // send date server
-      fetch('http://localhost:5000/appointments', {
+      fetch('https://hidden-journey-40317.herokuapp.com/appointments', {
         method: 'POST',
         headers: {
           'content-type' : 'application/json'
@@ -49,8 +50,6 @@ const BookingModal = ({openBooking, handleBookingClose, booking, date, setBookin
           handleBookingClose();
         }
       })
-
-        
         e.preventDefault();
     }
 
@@ -103,6 +102,15 @@ const BookingModal = ({openBooking, handleBookingClose, booking, date, setBookin
                     name = "patientEmail"
                     onBlur = {handleOnBlur}
                     defaultValue= {user.email}
+                    size="small"
+                />
+                <TextField
+                    disabled
+                    sx={{width: '90%', m:1}}
+                    id="outlined-size-small"
+                    name = "patientEmail"
+                    onBlur = {handleOnBlur}
+                    defaultValue= {`Price: ${price}.00`}
                     size="small"
                 />
                 <TextField
